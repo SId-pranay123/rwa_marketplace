@@ -1,0 +1,19 @@
+
+{
+    "mint": {
+      "token_id": "3",
+      "owner": "nibi197gw9qcxfnvypn3dwqwys2jptgyrl5zksfz86a",
+      "token_uri": "ipfs://bafybeigxa4ifta32fjl7yejgr6sddanwcgex5m2xxhatjzpms4iwh5bcvm/ascended.json",
+      "extension": {
+        "name": "My NFT",
+        "description": "This is my second NFT",
+        "attributes": [
+          {
+            "trait_type": "Background",
+            "value": "Blue"
+          }
+        ]
+      }
+    }
+  }
+  

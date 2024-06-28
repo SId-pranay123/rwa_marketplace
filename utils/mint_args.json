@@ -1,0 +1,16 @@
+{
+    "list_nft": {
+      "contract_address": "nibi1gu49g3vndt6ued4k329j83xvkf4nk236vqm6zsxattztwxqnztfqnpu6p7",
+      "token_id": "3",
+      "auction_config": {
+        "fixed_price": {
+          "price": {
+            "denom": "unibi",
+            "amount": "1000000"
+          },
+          "start_time": null,
+          "end_time": null
+        }
+      }
+    }
+}
