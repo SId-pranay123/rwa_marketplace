@@ -13,10 +13,15 @@ import Auctions_dropdown from "../../../components/dropdown/Auctions_dropdown";
 export default function ProductInfo(){
     const router = useRouter();
     const { slug } = router.query;
-    const [data, setData] = useState({});
+    const [data, setData] = useState({
+        name: "",
+        description: "",
+        image: "",
+        document: "",
+    });
     const [owner, setOwner] = useState("");
 
-    const fetchData = async (token_uri) => {
+    const fetchData = async (token_uri:string) => {
         try {
           const {
             data: {name, description, image, document},
@@ -28,7 +33,7 @@ export default function ProductInfo(){
         }
       }
     
-      const func = async (token_id) => {
+      const func = async (token_id:any) => {
         let data = JSON.stringify({
           "contractAddress": "nibi1gu49g3vndt6ued4k329j83xvkf4nk236vqm6zsxattztwxqnztfqnpu6p7",
           "token_id": `${token_id}`,
@@ -68,7 +73,9 @@ export default function ProductInfo(){
 
 
     useEffect(() => {
-        func(slug)
+        // if(slug){
+          func(slug)
+        // }
     },[slug])
 
         

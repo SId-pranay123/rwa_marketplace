@@ -32,7 +32,7 @@ const Create = () => {
 
   const dispatch = useDispatch();
 
-  const uploadToPinata = async file => {
+  const uploadToPinata = async (file: any) => {
     if (file) {
       try {
         const formData = new FormData();
@@ -56,9 +56,10 @@ const Create = () => {
         console.log('Unable to upload image to Pinata');
       }
     }
+    return ""
   };
 
-  const uploadDocToPinata = async file => {
+  const uploadDocToPinata = async (file:any) => {
     if (file) {
       try {
         const formData = new FormData();
@@ -82,9 +83,10 @@ const Create = () => {
         console.log('Unable to upload image to Pinata');
       }
     }
+    return ""
   };
 
-  const pinJSONToIPFS = async (name, description, ImgHash, DocHash) => {
+  const pinJSONToIPFS = async (name: string, description: string, ImgHash: string, DocHash: string) => {
     const JWT =
       'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxNDgwOGYzMi1hMGUyLTQ1ZDMtYjg3Mi02YjgzYjMzNzNmMTEiLCJlbWFpbCI6InNpZGRoYXJ0aHByYW5heTBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjFiY2UyNjM2Yjg5OGFkYTUwZDYyIiwic2NvcGVkS2V5U2VjcmV0IjoiYjAxYTNkMTBhODA1OTg2ODFiZGUzZGQzYTM2ZDlkYjc5YmQ5MzdjNjA4Zjg0NmFkY2FmYTIxOGVjZmEzYzk2NSIsImV4cCI6MTc1MTA5MzYxN30.zZo06lenceMlVU11_3q_0UPewOwsB-ermN0griNiaTk';
 
@@ -214,14 +216,14 @@ const Create = () => {
 
   };
 
-  const [imgHasg, setImgHash]= useState<string| undefined>("");
-  const [docHash, setDocHash] = useState<string| undefined>("");
-  const [finalHash, setFinalHash] = useState<string| undefined>("");
-  const [name, setName] = useState<string| undefined>("");
-  const [description, setDescription] = useState<string| undefined>("");
-  const [price, setPrice] = useState<string|undefined>("")
+  const [imgHasg, setImgHash]= useState<string>("");
+  const [docHash, setDocHash] = useState<string>("");
+  const [finalHash, setFinalHash] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [price, setPrice] = useState<string>("")
 
-  const handleChange = async (file) => {
+  const handleChange = async (file: any) => {
     setFile(file.name);
     // console.log(file);
     const imgHash = await uploadToPinata(file);
@@ -232,13 +234,13 @@ const Create = () => {
   const fileTypePDF = ["PDF"];
   const [filePDF, setFilePDF] = useState("");
 
-  const handleChangePDF = async (file) => {
+  const handleChangePDF = async (file: any) => {
     setFile(file.name);
     const DocHash =await uploadDocToPinata(file);
     setDocHash(DocHash);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     await pinJSONToIPFS(name, description, imgHasg, docHash);
     console.log("Final Hash", finalHash);
