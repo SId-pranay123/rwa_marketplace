@@ -708,7 +708,7 @@ export default function Header01() {
                         <use xlinkHref="/icons.svg#icon-ETH" />
                       </svg>
                       <span className="text-green text-lg font-bold">
-                        10 ETH
+                        10 unibi
                       </span>
                     </div>
                   </div>
