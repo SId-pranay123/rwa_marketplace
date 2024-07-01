@@ -52,7 +52,7 @@ const CategoryItem = () => {
   
   const nftsData = []  
 
-  const API_BASE_URL = 'http://localhost:3000'; // Replace with your backend server URL
+  const API_BASE_URL = 'https://niburublockchain.chainbros.xyz'; // Replace with your backend server URL
 
 
   const fetchData = async (token_uri) => {
@@ -76,7 +76,7 @@ const CategoryItem = () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/nft_info',
+      url: 'https://niburublockchain.chainbros.xyz/nft_info',
       headers: { 
         'Content-Type': 'application/json'
       },

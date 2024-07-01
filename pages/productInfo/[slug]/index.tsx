@@ -42,7 +42,7 @@ export default function ProductInfo(){
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://localhost:3000/nft_info',
+          url: 'https://niburublockchain.chainbros.xyz/nft_info',
           headers: { 
             'Content-Type': 'application/json'
           },

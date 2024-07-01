@@ -137,7 +137,7 @@ const Create = () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/mint-nft',
+      url: 'https://niburublockchain.chainbros.xyz/mint-nft',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -162,7 +162,7 @@ const Create = () => {
     let configApprove = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/approve-nft',
+      url: 'https//niburublockchain.chainbros.xyz/approve-nft',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -198,7 +198,7 @@ const Create = () => {
     let configList = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3000/list-nft',
+      url: 'https://niburublockchain.chainbros.xyz/list-nft',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -324,7 +324,7 @@ const Create = () => {
               <div className="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 group relative flex max-w-md flex-col items-center justify-center rounded-lg border-2 border-dashed bg-white py-20 px-5 text-center">
                 <div className="relative z-10 cursor-pointer">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
@@ -369,7 +369,7 @@ const Create = () => {
               <div className="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 group relative flex max-w-md flex-col items-center justify-center rounded-lg border-2 border-dashed bg-white py-20 px-5 text-center">
                 <div className="relative z-10 cursor-pointer">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
