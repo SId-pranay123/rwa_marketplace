@@ -16,11 +16,6 @@ const Collection_items = () => {
       text: "Items",
       icon: "items",
     },
-    {
-      id: 2,
-      text: "Activity",
-      icon: "activities",
-    },
   ];
   return (
     <>
@@ -69,9 +64,9 @@ const Collection_items = () => {
                 <FilterCategoryItem />
               </div>
             </TabPanel>
-            <TabPanel>
+            {/* <TabPanel>
               <Activity_item />
-            </TabPanel>
+            </TabPanel> */}
           </Tabs>
         </div>
       </section>
