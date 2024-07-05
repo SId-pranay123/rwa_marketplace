@@ -67,7 +67,7 @@ const Home_4 = () => {
     </section>
 
 
-      <Footer/>
+      {/* <Footer/> */}
     </>
   );
 };
