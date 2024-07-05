@@ -1,4 +1,4 @@
-import { NibiruTxClient, newSignerFromMnemonic, Msg, TxMessage, Localnet, Testnet } from "@nibiruchain/nibijs";
+import { NibiruTxClient, newSignerFromMnemonic, Testnet } from "@nibiruchain/nibijs";
 
 // Step 1: Define the chain and endpoint
 export const CHAIN = Testnet(1);  // You can replace this with the appropriate chain environment
@@ -16,7 +16,7 @@ async function executeBuyTransaction() {
   // const nftId = "your-nft-id"; // Replace with the ID of the NFT you want to buy
   // const paymentAmount = coin("1000", "unusd"); // Replace with the amount and currency you need to pay
 
-  const buyMsg: TxMessage = {
+  const buyMsg: any = {
     typeUrl: "/nibiru.nft-marketplace.listings_by_contract_address",  // Replace with the actual type URL for the buy function in your NFT contract
     value: {
       contract_address: "nibi1gu49g3vndt6ued4k329j83xvkf4nk236vqm6zsxattztwxqnztfqnpu6p7"
