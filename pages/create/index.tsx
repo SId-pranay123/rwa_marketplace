@@ -28,7 +28,7 @@ const Create = () => {
     "GLTF",
   ];
   const [file, setFile] = useState("");
-  const [token_id, setToken_id] = useState("5");
+  const [token_id, setToken_id] = useState("18");
 
   const dispatch = useDispatch();
 
@@ -120,56 +120,71 @@ const Create = () => {
       console.log(error);
       // return error
     }
-    alert('NFT has been listed');
+    console.log('NFT has been listed');
 
     setToken_id(String(Number(token_id) + 1))
 
     let dataMint = JSON.stringify({
       "contractAddress": "nibi1gu49g3vndt6ued4k329j83xvkf4nk236vqm6zsxattztwxqnztfqnpu6p7",
       "account": "nibi197gw9qcxfnvypn3dwqwys2jptgyrl5zksfz86a",
-      "token_id": "7",
+      "token_id": "${token_id}",
       "token_uri": `${finalHash}`,
       "name": `${name}`,
       "description": `${description}`,
       "attributes": "[]"
     });
     
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://niburublockchain.chainbros.xyz/mint-nft',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : dataMint
-    };
+    // let config = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'https://niburublockchain.chainbros.xyz/mint-nft',
+    //   headers: { 
+    //     'Content-Type': 'application/json'
+    //   },
+    //   data : dataMint
+    // };
     
-    axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
+    // axios.request(config)
+    // .then((response) => {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+
+    axios.post('https://niburublockchain.chainbros.xyz/mint-nft', dataMint, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }) .then(response => {
+      console.log('Response:', response.data);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(error => {
+      console.error('Error:', error);
     });
 
     let dataApprove = JSON.stringify({
       "spender": "nibi1j65ycuzrawuyntjmgkl26qv3hy4y93xexjuyelrvv9q6n8smvh5sg9jrx6",
       "contractAddress": "nibi1gu49g3vndt6ued4k329j83xvkf4nk236vqm6zsxattztwxqnztfqnpu6p7",
       "account": "nibi197gw9qcxfnvypn3dwqwys2jptgyrl5zksfz86a",
-      "token_id": "7"
+      "token_id": "${token_id}"
     });
     
-    let configApprove = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https//niburublockchain.chainbros.xyz/approve-nft',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : dataApprove
-    };
+    // let configApprove = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'https//niburublockchain.chainbros.xyz/approve-nft',
+    //   headers: { 
+    //     'Content-Type': 'application/json'
+    //   },
+    //   data : dataApprove
+    // };
     
-    axios.request(configApprove)
+    axios.post("https://niburublockchain.chainbros.xyz/approve-nft", dataApprove, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     .then((response) => {
       console.log(JSON.stringify(response.data));
     })
@@ -195,17 +210,21 @@ const Create = () => {
       }
     });
     
-    let configList = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://niburublockchain.chainbros.xyz/list-nft',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : dataList
-    };
+    // let configList = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'https://niburublockchain.chainbros.xyz/list-nft',
+    //   headers: { 
+    //     'Content-Type': 'application/json'
+    //   },
+    //   data : dataList
+    // };
     
-    axios.request(configList)
+    axios.post("https://niburublockchain.chainbros.xyz/list-nft", dataList, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     .then((response) => {
       console.log(JSON.stringify(response.data));
     })
@@ -213,7 +232,7 @@ const Create = () => {
       console.log(error);
     });
 
-
+    alert("NFT Minted Successfully");
   };
 
   const [imgHasg, setImgHash]= useState<string>("");
